@@ -155,6 +155,11 @@ also packages the sample scene and script in a separate package.
 
 There's also a shortcut for linux/mac: `./build_all`.
 
+Potential GOTCHAS:
+
+- `build.gradle` makes an assumption about the Unity version AND the path to the Unity executable. If this is not accurate, you can either modify the file directly or set up an environment variable called "UNITY_EXE" that contains the path to Unity.
+- The build script uses system installed C++ compiler, CMake, and Android SDK tools. If you don't have any of these, you might run into problems.
+
 
 ## Questions? Problems?
 Post questions to this [Github project](https://github.com/googlesamples/google-signin-unity).

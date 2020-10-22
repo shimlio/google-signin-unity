@@ -295,7 +295,7 @@ Future<GoogleSignIn::SignInResult> &GoogleSignIn::GoogleSignInImpl::SignIn() {
     current_result_->SetResult(nullptr);
   }
 
-  //CallConfigure();
+  CallConfigure();
 
   env->CallStaticVoidMethod(helper_clazz_, signin_method_, activity_,
                             (jlong)current_result_);
@@ -311,7 +311,7 @@ Future<GoogleSignIn::SignInResult>
     current_result_->SetResult(nullptr);
   }
 
-  //CallConfigure();
+  CallConfigure();
 
   env->CallStaticVoidMethod(helper_clazz_, signinsilently_method_, activity_,
                             (jlong)current_result_);
@@ -329,10 +329,12 @@ const Future<GoogleSignIn::SignInResult>
 void GoogleSignIn::GoogleSignInImpl::SignOut() {
   JNIEnv *env = GetJniEnv();
 
+  /*
   __android_log_print(ANDROID_LOG_INFO, TAG,
                       "helper: %x method: %x activity: %x",
-                      (uintptr_t)helper_clazz_, (uintptr_t)signin_method_,
+                      (uintptr_t)helper_clazz_, (uintptr_t)signout_method_,
                       (uintptr_t)activity_);
+  */
 
   env->CallStaticVoidMethod(helper_clazz_, signout_method_, activity_);
 }

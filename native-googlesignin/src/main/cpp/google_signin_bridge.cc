@@ -18,6 +18,7 @@
 
 #include <android/log.h>
 #include <memory>
+#include <cstring>
 
 #include "google_signin.h"
 

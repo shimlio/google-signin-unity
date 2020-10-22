@@ -50,7 +50,7 @@ project.ext {
     }
     if (unity_exe == null || unity_exe.isEmpty()) {
         if (os_osx) {
-            unity_exe = '/Applications/Unity/Unity.app/Contents/MacOS/Unity'
+            unity_exe = '/Applications/Unity/Hub/Editor/2019.4.5f1/Unity.app/Contents/MacOS/Unity'
         } else if (os_windows) {
             unity_exe = 'c:\\program files\\unity\\editor\\unity.exe'
         } else {
@@ -152,7 +152,7 @@ task import_jarresolver() {
 
     doLast {
         def tree = fileTree(resolverDir) {
-            include "*.unitypackage"
+            include "*latest.unitypackage"
         }
         def jarresolver_package = tree.getSingleFile()
         def argv = [
@@ -242,7 +242,7 @@ task package_plugin () {
 
     doLast {
         def tree = fileTree(resolverDir) {
-            include "*.unitypackage"
+            include "*latest.unitypackage"
         }
         def jarresolver_package = tree.getSingleFile()
         def argv = [
@@ -257,8 +257,6 @@ task package_plugin () {
                 "-importPackage", jarresolver_package,
                 "-exportPackage",
                     "Assets/GoogleSignIn",
-                    "Assets/Parse",
-                    "Assets/PlayServicesResolver",
                     "Assets/Plugins",
                 "${exportPath}",
                 "-quit"

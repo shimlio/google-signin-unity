@@ -131,6 +131,7 @@ namespace Google.Impl {
     internal static extern void GoogleSignIn_DisposeFuture(HandleRef self);
 
     [DllImport(DllName)]
+    [return: MarshalAs (UnmanagedType.I1)]
     internal static extern bool GoogleSignIn_Pending(HandleRef self);
 
     [DllImport(DllName)]

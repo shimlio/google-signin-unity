@@ -187,6 +187,7 @@ task generate_dependency_xml() {
   dependsOn copy_unity_project
   doFirst {
     def xmlFile = file("${pluginProjectPath}/${editorDir}/GoogleSignInSupportDependencies.xml")
+    xmlFile.text = ''
 
     xmlFile << '<?xml version="1.0" encoding="UTF-8" ?>\n'
     xmlFile << '<dependencies>\n'

@@ -37,6 +37,10 @@ namespace Google.Impl {
         return GoogleSignInImpl.GoogleSignIn_Pending(SelfPtr());
       }
     }
+    
+    public void Break() {
+      GoogleSignInImpl.GoogleSignIn_Break(SelfPtr());
+    }
 
     public GoogleSignInUser Result {
       get {

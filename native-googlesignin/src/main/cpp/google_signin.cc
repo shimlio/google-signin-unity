@@ -158,21 +158,30 @@ jmethodID GoogleSignIn::GoogleSignInImpl::signout_method_ = 0;
 // Implementation of the SignIn future.
 class GoogleSignInFuture : public Future<GoogleSignIn::SignInResult> {
   virtual int Status() const {
+    if (breaked_) return GoogleSignIn::StatusCode::kStatusCodeCanceled;
     return result_ ? result_->StatusCode
                    : GoogleSignIn::StatusCode::kStatusCodeUninitialized;
   }
   virtual GoogleSignIn::SignInResult *Result() const { return result_; }
   virtual bool Pending() const {
+    if (breaked_) return false;
     return (!result_) || result_->StatusCode ==
                              GoogleSignIn::StatusCode::kStatusCodeUninitialized;
+  }
+  virtual void Break() {
+    breaked_ = true;
   }
 
  public:
   GoogleSignInFuture() : result_(nullptr) {}
-  void SetResult(GoogleSignIn::SignInResult *result) { result_ = result; }
+  void SetResult(GoogleSignIn::SignInResult *result) { 
+    breaked_ = false;
+    result_ = result; 
+  }
 
  private:
   GoogleSignIn::SignInResult *result_;
+  bool breaked_;
 };
 
 // Constructs a new instance.  The static members are initialized if need-be.

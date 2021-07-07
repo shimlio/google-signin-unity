@@ -145,6 +145,10 @@ bool GoogleSignIn_Pending(GoogleSignInFuture_t self) {
   return self->wrapped_->Pending();
 }
 
+void GoogleSignIn_Break(GoogleSignInFuture_t self) {
+  self->wrapped_->Break();
+}
+
 int GoogleSignIn_Status(GoogleSignInFuture_t self) {
   // Map the Android status code onto the Unity plugin enum.
   switch (self->wrapped_->Status()) {

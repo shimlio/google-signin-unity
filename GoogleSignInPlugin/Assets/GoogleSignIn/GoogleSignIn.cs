@@ -57,6 +57,7 @@ namespace Google {
 
     private static GoogleSignIn theInstance = null;
     private static GoogleSignInConfiguration theConfiguration = null;
+    private static Future<GoogleSignInUser> theFuture = null;
     private ISignInImpl impl;
 
     ///<summary> The configuration settings for Google Sign-in.</summary>
@@ -116,8 +117,9 @@ namespace Google {
     /// </remarks>
     public Task<GoogleSignInUser> SignIn() {
       var tcs = new TaskCompletionSource<GoogleSignInUser>();
+      theFuture = impl.SignIn();
       SignInHelperObject.Instance.StartCoroutine(
-        impl.SignIn().WaitForResult(tcs));
+        theFuture.WaitForResult(tcs));
       return tcs.Task;
     }
 
@@ -129,9 +131,20 @@ namespace Google {
     /// </remarks>
     public Task<GoogleSignInUser> SignInSilently() {
       var tcs = new TaskCompletionSource<GoogleSignInUser>();
+      theFuture = impl.SignInSilently();
       SignInHelperObject.Instance.StartCoroutine(
-          impl.SignInSilently().WaitForResult(tcs));
+        theFuture.WaitForResult(tcs));
       return tcs.Task;
+    }
+
+    /// <summary>
+    /// Interruput the waiting state for sign-in.
+    /// </summary>
+    /// <remarks>
+    /// This is used when the sign-in waiting state does not end for some reason.
+    /// </remarks>
+    public void CancelSignIn() {
+      theFuture?.Break();
     }
 
     /// <summary>

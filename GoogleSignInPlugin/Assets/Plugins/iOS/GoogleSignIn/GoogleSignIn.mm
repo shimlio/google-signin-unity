@@ -263,6 +263,17 @@ bool GoogleSignIn_Pending(SignInResult *result) {
   return ret;
 }
 
+void GoogleSignIn_Break(SignInResult *result) {
+  [resultLock lock];
+  result->result_code = kStatusCodeCanceled;
+  result->finished = true;
+  if (result != currentResult_.get()) {
+    currentResult_->result_code = kStatusCodeCanceled;
+    currentResult_->finished = true;
+  }
+  [resultLock unlock];
+}
+
 GIDGoogleUser *GoogleSignIn_Result(SignInResult *result) {
   if (result && result->finished) {
     GIDGoogleUser *guser = [GIDSignIn sharedInstance].currentUser;

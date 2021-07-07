@@ -135,6 +135,9 @@ namespace Google.Impl {
     internal static extern bool GoogleSignIn_Pending(HandleRef self);
 
     [DllImport(DllName)]
+    internal static extern void GoogleSignIn_Break(HandleRef self);
+
+    [DllImport(DllName)]
     internal static extern IntPtr GoogleSignIn_Result(HandleRef self);
 
     [DllImport(DllName)]

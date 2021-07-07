@@ -33,6 +33,9 @@ class Future {
   // Returns true while the promise has not been fulfilled by the operation.
   // Once it is false, the Status and Result fields are populated.
   virtual bool Pending() const = 0;
+
+  // Break the fulfillment of the promise and the Status fields are populated.
+  virtual void Break() = 0;
 };
 
 }  // namespace googlesignin

@@ -23,6 +23,7 @@ namespace Google {
   /// </summary>
   internal interface FutureAPIImpl<T> {
     bool Pending { get; }
+    void Break();
     GoogleSignInStatusCode Status { get; }
     T Result { get; }
   }
@@ -50,6 +51,11 @@ namespace Google {
     /// </summary>
     /// <value><c>true</c> if pending; otherwise, <c>false</c>.</value>
     public bool Pending { get { return apiImpl.Pending; } }
+
+    /// <summary>
+    /// Interrupt the waiting state. Pending = false and the status is set.
+    /// </summary>
+    public void Break() { apiImpl.Break(); }
 
     /// <summary>
     /// Gets the status.

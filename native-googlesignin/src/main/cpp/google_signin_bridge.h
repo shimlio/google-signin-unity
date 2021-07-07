@@ -88,6 +88,11 @@ void GoogleSignIn_Disconnect(GoogleSignIn_t self);
 // (i.e. C#).
 bool GoogleSignIn_Pending(GoogleSignInFuture_t self);
 
+// Accesses the Break() method of the Future.  This avoids
+// having to marshal classes and structures between C and other languages
+// (i.e. C#).
+void GoogleSignIn_Break(GoogleSignInFuture_t self);
+
 // Accesses the Status() method of the Future.  This avoids
 // having to marshal classes and structures between C and other languages
 // (i.e. C#).

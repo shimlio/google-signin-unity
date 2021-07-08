@@ -33,4 +33,4 @@ contents.xcworkspacedata
 staging/native/testapp/testapp.xcodeproj/project.xcworkspace/xcuserdata
 
 # Ignore unitypackages.
-*.unitypackage
+#*.unitypackage

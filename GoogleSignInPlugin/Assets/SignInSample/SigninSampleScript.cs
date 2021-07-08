@@ -48,6 +48,12 @@ namespace SignInSample {
         OnAuthenticationFinished);
     }
 
+    public void OnCancelSignIn() {
+      AddStatusText("Calling CancelSignIn");
+      GoogleSignIn.DefaultInstance.CancelSignIn();
+    }
+
+
     public void OnSignOut() {
       AddStatusText("Calling SignOut");
       GoogleSignIn.DefaultInstance.SignOut();

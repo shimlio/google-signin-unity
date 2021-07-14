@@ -164,7 +164,7 @@ Potential GOTCHAS:
 - The build script uses system installed C++ compiler, CMake, and Android SDK tools. If you don't have any of these, you might run into problems.
 
 Note by shimlio:
-- Using Android 11.0(R), Android NDK 20.1.5948944, CMake 3.6.4111459, git 2.32.0.windows.1.
+- Using Android 11.0(R), Android NDK 20.1.5948944, CMake 3.6.4111459, git 2.32.0.windows.1, Unity 2019.4.18f1.
 - Set up the environment variables __"ANDROID_HOME"__ and __"ANDROID_NDK_HOME"__, or create `local.properties` file and write the path to the Android SDK and NDK.
 - The first build fails, the second succeeds.
 

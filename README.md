@@ -66,6 +66,9 @@ this yourself.
 Create a new Unity project and import the `GoogleSignIn-1.0.0.unitypackage` (or the latest version).
 This contains native code, C# Unity code needed to call the Google Sign-In API for both Android and iOS.
 
+Note by shimlio:
+- And import the [googlesamples/unity-jar-resolver](https://github.com/googlesamples/unity-jar-resolver).
+
 ### Import the sample scene
 Import the `GoogleSignIn-sample.unitypackage` which contains the sample scene and
 scripts.  This package is not needed if you are integrating Google Sign-in into
@@ -161,5 +164,9 @@ Potential GOTCHAS:
 - The build script uses system installed C++ compiler, CMake, and Android SDK tools. If you don't have any of these, you might run into problems.
 
 
+Note by shimlio:
+- Using Android 11.0(R), Android NDK 20.1.5948944, CMake 3.6.4111459, git 2.32.0.windows.1, Android Studio 4.4.2 .
+- Set up the environment variables "ANDROID_HOME" and "ANDROID_NDK_HOME", or create `local.properties` file and write the path to the Android NDK and SDK.
+- The first build fails, the second succeeds.
 ## Questions? Problems?
 Post questions to this [Github project](https://github.com/googlesamples/google-signin-unity).

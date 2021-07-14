@@ -160,13 +160,13 @@ There's also a shortcut for linux/mac: `./build_all`.
 
 Potential GOTCHAS:
 
-- `build.gradle` makes an assumption about the Unity version AND the path to the Unity executable. If this is not accurate, you can either modify the file directly or set up an environment variable called "UNITY_EXE" that contains the path to Unity.
+- `build.gradle` makes an assumption about the Unity version AND the path to the Unity executable. If this is not accurate, you can either modify the file directly or set up an environment variable called __"UNITY_EXE"__ that contains the path to Unity.
 - The build script uses system installed C++ compiler, CMake, and Android SDK tools. If you don't have any of these, you might run into problems.
 
-
 Note by shimlio:
-- Using Android 11.0(R), Android NDK 20.1.5948944, CMake 3.6.4111459, git 2.32.0.windows.1, Android Studio 4.4.2 .
-- Set up the environment variables "ANDROID_HOME" and "ANDROID_NDK_HOME", or create `local.properties` file and write the path to the Android NDK and SDK.
+- Using Android 11.0(R), Android NDK 20.1.5948944, CMake 3.6.4111459, git 2.32.0.windows.1.
+- Set up the environment variables __"ANDROID_HOME"__ and __"ANDROID_NDK_HOME"__, or create `local.properties` file and write the path to the Android SDK and NDK.
 - The first build fails, the second succeeds.
+
 ## Questions? Problems?
 Post questions to this [Github project](https://github.com/googlesamples/google-signin-unity).
